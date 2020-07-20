@@ -18,7 +18,7 @@ const Project = mongoose.model('Project', projectSchema, 'projects');
 mongoose
   .connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log(`Connected to ${dbURI}...`))
-  .catch(err => console.log(`Could not connect to MongoDB {${dbURI}} ...`, err));
+  .catch(err => console.log(`Could not connect to MongoDB...`, err));
 
 app.use(express.json());
 app.use(cors());

@@ -24,7 +24,7 @@ app.use(express.json());
 app.use(cors());
 
 app.get('/api/projects', async (req, res) => {
-  const project = await Project.find({}).select('-data');
+  const project = await Project.find({});
   res.send(project);
 });
 

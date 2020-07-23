@@ -6,10 +6,10 @@ const config = require('config');
 const dbURI = config.get('dbURI');
 
 const projectSchema = new mongoose.Schema({
+  date: Date,
   title: String,
   href: String,
   tags: [String],
-  length: Number,
   data: Buffer
 });
 

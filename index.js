@@ -12,8 +12,8 @@ const projectSchema = new mongoose.Schema({
   tags: [String],
   data: Buffer
 });
-
 const Project = mongoose.model('Project', projectSchema, 'projects');
+const Tutorial = mongoose.model('Project', projectSchema, 'tutorials');
 
 mongoose
   .connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
@@ -22,9 +22,15 @@ mongoose
 
 app.use(express.json());
 app.use(cors());
+
 app.get('/api/projects', async (req, res) => {
   const project = await Project.find({});
   res.send(project);
+});
+
+app.get('/api/tutorials', async (req, res) => {
+  const tutorialProj = await Tutorial.find({});
+  res.send(tutorialProj);
 });
 
 const port = process.env.PORT || config.get('port');
